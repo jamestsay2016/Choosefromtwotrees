@@ -1,261 +1,246 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>抉擇：善惡樹與生命樹</title>
-<!-- 引入古典襯線字體風格 -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Noto+Serif+TC:wght@400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>抉擇：善惡樹與生命樹</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Noto+Serif+TC:wght@400;600&display=swap" rel="stylesheet">
 
-<style>
-:root {
---parchment-bg: #f5eedb;
---gold-accent: #c5a059;
---dark-wood: #2b1d0c;
---text-color: #382717;
-}
+  <style>
+    :root {
+      --gold-accent: #c5a059;
+      --dark-wood: #2b1d0c;
+      --text-color: #382717;
+    }
 
-* {
-box-sizing: border-box;
-margin: 0;
-padding: 0;
-}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-body {
-font-family: 'Noto Serif TC', serif;
-background: radial-gradient(circle at center, #fbf7ee 0%, #ecdcc3 100%);
-color: var(--text-color);
-min-height: 100vh;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-padding: 2rem;
-}
+    body {
+      font-family: 'Noto Serif TC', serif;
+      background: radial-gradient(circle at center, #fbf7ee 0%, #ecdcc3 100%);
+      color: var(--text-color);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      overflow-x: hidden;
+    }
 
-/* 標題區域 */
-header {
-text-align: center;
-margin-bottom: 2rem;
-}
+    /* 標題區域 */
+    header {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
 
-h1 {
-font-family: 'Cinzel', 'Noto Serif TC', serif;
-font-size: 2.3rem;
-letter-spacing: 3px;
-color: var(--dark-wood);
-text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
-margin-bottom: 0.5rem;
-}
+    h1 {
+      font-family: 'Cinzel', 'Noto Serif TC', serif;
+      font-size: 2.2rem;
+      letter-spacing: 3px;
+      color: var(--dark-wood);
+      margin-bottom: 0.4rem;
+    }
 
-p.subtitle {
-font-size: 1.1rem;
-color: #6b5238;
-font-style: italic;
-}
+    p.subtitle {
+      font-size: 1.05rem;
+      color: #6b5238;
+      font-style: italic;
+    }
 
-/* 首頁：兩棵樹的容器 */
-.trees-container {
-display: flex;
-justify-content: center;
-gap: 3rem;
-max-width: 1000px;
-width: 100%;
-flex-wrap: wrap;
-}
+    /* 首頁：兩棵樹的容器 */
+    .trees-container {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      max-width: 900px;
+      width: 100%;
+      flex-wrap: wrap;
+    }
 
-/* 樹的卡片按鈕 */
-.tree-card {
-background: #faf6ee;
-border: 3px double var(--gold-accent);
-border-radius: 8px;
-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
-width: 320px;
-cursor: pointer;
-text-decoration: none;
-color: inherit;
-overflow: hidden;
-display: flex;
-flex-direction: column;
-align-items: center;
-transition: all 0.35s ease;
-position: relative;
-}
+    /* 樹的卡片按鈕 */
+    .tree-card {
+      background: #faf6ee;
+      border: 3px double var(--gold-accent);
+      border-radius: 8px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+      width: 300px;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: all 0.35s ease;
+    }
 
-.tree-card:hover {
-transform: translateY(-8px);
-box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-border-color: #9d7b32;
-}
+    .tree-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      border-color: #9d7b32;
+    }
 
-.img-wrapper {
-width: 100%;
-height: 380px;
-overflow: hidden;
-background-color: #dfcfb7;
-}
+    .img-wrapper {
+      width: 100%;
+      height: 350px;
+      overflow: hidden;
+      background-color: #dfcfb7;
+    }
 
-.tree-card img {
-width: 100%;
-height: 100%;
-object-fit: cover;
-filter: sepia(20%) contrast(95%);
-transition: transform 0.5s ease;
-}
+    .tree-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: sepia(15%) contrast(95%);
+      transition: transform 0.5s ease;
+    }
 
-.tree-card:hover img {
-transform: scale(1.05);
-}
+    .tree-card:hover img {
+      transform: scale(1.05);
+    }
 
-.tree-label {
-padding: 1.2rem;
-text-align: center;
-font-size: 1.25rem;
-font-weight: 600;
-letter-spacing: 1px;
-width: 100%;
-background: linear-gradient(to bottom, #fffdf8, #f5eedb);
-border-top: 1px solid rgba(197, 160, 89, 0.4);
-}
+    .tree-label {
+      padding: 1rem;
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      width: 100%;
+      background: linear-gradient(to bottom, #fffdf8, #f5eedb);
+      border-top: 1px solid rgba(197, 160, 89, 0.4);
+    }
 
-/* 第二頁：海報頁面 /
-#poster-view {
-display: none; / 預設隱藏 */
-max-width: 700px;
-width: 100%;
-flex-direction: column;
-align-items: center;
-animation: fadeIn 0.8s ease;
-}
+    /* 第二頁：海報區塊 */
+    .poster-frame {
+      background: #fffcf7;
+      border: 6px solid var(--gold-accent);
+      outline: 2px solid var(--dark-wood);
+      outline-offset: -10px;
+      padding: 2rem;
+      border-radius: 4px;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      width: 100%;
+      max-width: 650px;
+      animation: fadeIn 0.6s ease;
+    }
 
-.poster-frame {
-background: #fffcf7;
-border: 6px solid var(--gold-accent);
-outline: 2px solid var(--dark-wood);
-outline-offset: -12px;
-padding: 2.5rem;
-border-radius: 4px;
-box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
-text-align: center;
-width: 100%;
-position: relative;
-}
+    .poster-img {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      border: 1px solid #d8c29d;
+      margin-bottom: 1.5rem;
+    }
 
-.poster-img {
-width: 100%;
-max-height: 350px;
-object-fit: cover;
-border: 1px solid #d8c29d;
-margin-bottom: 1.8rem;
-}
+    .poster-title {
+      font-size: 1.8rem;
+      color: var(--dark-wood);
+      margin-bottom: 1rem;
+    }
 
-.poster-title {
-font-size: 1.8rem;
-color: var(--dark-wood);
-margin-bottom: 1rem;
-}
+    .poster-instruction {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #4a3828;
+      text-align: left;
+      padding: 1rem 1.2rem;
+      background: #faf4e6;
+      border-left: 4px solid var(--gold-accent);
+      margin-bottom: 1.8rem;
+    }
 
-.poster-instruction {
-font-size: 1.15rem;
-line-height: 1.9;
-color: #4a3828;
-text-align: left;
-padding: 1rem 1.5rem;
-background: #faf4e6;
-border-left: 4px solid var(--gold-accent);
-margin-bottom: 2rem;
-}
+    /* 返回按鈕 */
+    .back-btn {
+      display: inline-block;
+      padding: 0.7rem 2rem;
+      background-color: var(--dark-wood);
+      color: #faf4e6;
+      border: 1px solid var(--gold-accent);
+      border-radius: 4px;
+      font-size: 1rem;
+      letter-spacing: 2px;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
 
-/* 返回按鈕 */
-.back-btn {
-display: inline-block;
-padding: 0.8rem 2rem;
-background-color: var(--dark-wood);
-color: #faf4e6;
-border: 1px solid var(--gold-accent);
-border-radius: 4px;
-font-size: 1rem;
-letter-spacing: 2px;
-cursor: pointer;
-text-decoration: none;
-transition: background 0.3s ease, transform 0.2s ease;
-}
+    .back-btn:hover {
+      background-color: #4a3417;
+      transform: translateY(-2px);
+    }
 
-.back-btn:hover {
-background-color: #4a3417;
-transform: translateY(-2px);
-}
-
-@keyframes fadeIn {
-from { opacity: 0; transform: translateY(10px); }
-to { opacity: 1; transform: translateY(0); }
-}
-</style>
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
 <body>
 
-<!-- 首頁視圖 -->
-<main id="home-view">
-<header>
-<h1>伊甸園的抉擇</h1>
-<p class="subtitle">園中各樣樹上的果子，你都可以隨意吃；只是…</p>
-</header>
+  <!-- 首頁視圖 -->
+  <main id="home-view">
+    <header>
+      <h1>伊甸園的抉擇</h1>
+      <p class="subtitle">園中各樣樹上的果子，你都可以隨意吃；只是…</p>
+    </header>
 
-<div class="trees-container">
-<!-- 左邊：善惡樹（點擊外連至 Gemini） -->
-<a href="https://gemini.google.com" target="_blank" rel="noopener noreferrer" class="tree-card">
-<div class="img-wrapper">
-<!-- 善惡知識樹（暫定圖，後續可替換 src） -->
-<img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=700&q=80" alt="分別善惡的樹" />
-</div>
-<div class="tree-label">分別善惡的樹</div>
-</a>
+    <div class="trees-container">
+      <!-- 左邊：分別善惡的樹 -->
+      <a href="https://gemini.google.com" target="_blank" rel="noopener noreferrer" class="tree-card">
+        <div class="img-wrapper">
+          <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=700&q=80" alt="分別善惡的樹" />
+        </div>
+        <div class="tree-label">分別善惡的樹</div>
+      </a>
 
-<!-- 右邊：生命樹（點擊切換為海報） -->
-<div class="tree-card" onclick="openPoster()">
-<div class="img-wrapper">
-<!-- 生命樹（暫定圖，後續可替換 src） -->
-<img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=700&q=80" alt="生命樹" />
-</div>
-<div class="tree-label">生命樹</div>
-</div>
-</div>
-</main>
+      <!-- 右邊：生命樹 -->
+      <div class="tree-card" onclick="openPoster()">
+        <div class="img-wrapper">
+          <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=700&q=80" alt="生命樹" />
+        </div>
+        <div class="tree-label">生命樹</div>
+      </div>
+    </div>
+  </main>
 
-<!-- 生命樹海報視圖 (Poster with Instructions) -->
-<section id="poster-view">
-<div class="poster-frame">
-<!-- 老師/生命的指示海報圖（暫定圖，後續可替換 src） -->
-<img class="poster-img" src="https://images.unsplash.com/photo-1518495973542-4542c06a5843?auto=format&fit=crop&w=800&q=80" alt="老師的指引海報" />
+  <!-- 生命樹海報視圖：加上 inline style 強制一開始絕對隱藏 -->
+  <section id="poster-view" style="display: none;">
+    <div class="poster-frame">
+      <img class="poster-img" src="https://images.unsplash.com/photo-1518495973542-4542c06a5843?auto=format&fit=crop&w=800&q=80" alt="老師的指引海報" />
 
-<h2 class="poster-title">生命的指引</h2>
+      <h2 class="poster-title">生命的指引</h2>
 
-<div class="poster-instruction">
-<strong>【老師的交代 Instructions】</strong><br />
-1. 凡事回到心靈的源頭，不急著依賴知識與對錯去論斷。<br />
-2. 安歇在生命的恩典與指引中，細細體會呼吸與同在。<br />
-3. 領受這份生命之果，將溫和平靜帶回日常的生活中。
-</div>
+      <div class="poster-instruction">
+        <strong>【老師的交代 Instructions】</strong><br />
+        1. 凡事回到心靈的源頭，不急著依賴知識與對錯去論斷。<br />
+        2. 安歇在生命的恩典與指引中，細細體會呼吸與同在。<br />
+        3. 領受這份生命之果，將溫和平靜帶回日常的生活中。
+      </div>
 
-<button class="back-btn" onclick="backToHome()">返回重新選擇</button>
-</div>
-</section>
+      <button class="back-btn" onclick="backToHome()">返回重新選擇</button>
+    </div>
+  </section>
 
-<script>
-function openPoster() {
-document.getElementById('home-view').style.display = 'none';
-const poster = document.getElementById('poster-view');
-poster.style.display = 'flex';
-window.scrollTo({ top: 0, behavior: 'smooth' });
-}
+  <script>
+    function openPoster() {
+      document.getElementById('home-view').style.display = 'none';
+      const poster = document.getElementById('poster-view');
+      poster.style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
 
-function backToHome() {
-document.getElementById('poster-view').style.display = 'none';
-document.getElementById('home-view').style.display = 'block';
-window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-</script>
+    function backToHome() {
+      document.getElementById('poster-view').style.display = 'none';
+      document.getElementById('home-view').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
 </body>
 </html>
